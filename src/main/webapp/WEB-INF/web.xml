@@ -13,28 +13,4 @@
         <url-pattern>/logout.action</url-pattern>
     </servlet-mapping>
 
-
-
-    <servlet>
-        <servlet-name>employee</servlet-name>
-        <servlet-class>com.cm.web.EmployeeCon</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>employee</servlet-name>
-        <url-pattern>/employeeadd.action</url-pattern>
-    </servlet-mapping>
-
-
-
-    <servlet>
-        <servlet-name>addemployee</servlet-name>
-        <servlet-class>com.cm.web.AddEmployee</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>addemployee</servlet-name>
-        <url-pattern>/addEmployee</url-pattern>
-    </servlet-mapping>
-
-
-
 </web-app>

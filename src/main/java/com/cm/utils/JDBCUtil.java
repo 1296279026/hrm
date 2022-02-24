@@ -27,7 +27,13 @@ public class JDBCUtil {
         Connection conn = source.getConnection();
         return conn;
     }
-
+    public void close(){
+        try {
+            getConnection().close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 

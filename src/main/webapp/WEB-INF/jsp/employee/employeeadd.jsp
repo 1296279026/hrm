@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 	<head>
 	<title>人事管理系统——添加员工</title>
@@ -161,7 +162,7 @@
 <table width="100%" height="90%" border="0" cellpadding="5" cellspacing="0" class="main_tabbor">
   <tr valign="top">
     <td>
-    	 <form action="${ctx}/addEmployee" id="employeeForm" method="post">
+    	 <form action="${ctx}/employee/addEmployee" id="employeeForm" method="post">
 		 	<!-- 隐藏表单，flag表示添加标记 -->
     	 	<input type="hidden" name="flag" value="2">
 		  <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
@@ -181,8 +182,8 @@
 		    			<td class="font3 fftd">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：
 		    			 <select name="job_id" style="width:143px;">
 					    			<option value="0">--请选择职位--</option>
-					    			<c:forEach items="${requestScope.jobList }" var="job">
-					    				<option value="${job.id }">${job.name }</option>
+					    			<c:forEach items="${sessionScope.jobList }" var="job">
+					    				<option value="${job.id}">  ${job.name }</option>
 					    			</c:forEach>
 					    		</select>
 					    </td>
@@ -239,7 +240,7 @@
 					&nbsp;&nbsp;所属部门：
 					<select  name="dept_id" style="width:100px;">
 						   <option value="0">--部门选择--</option>
-						   <c:forEach items="${requestScope.deptList}" var="dept">
+						   <c:forEach items="${sessionScope.deptList}" var="dept">
 			    				<option value="${dept.id }">${dept.name }</option>
 			    			</c:forEach>
 					</select>

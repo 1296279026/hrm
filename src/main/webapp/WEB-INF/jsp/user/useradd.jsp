@@ -65,7 +65,7 @@
 	<td width="15" height="32"><img src="${ctx}/images/main_locright.gif" width="15" height="32"></td>
   </tr>
 </table>
-<form action="${ctx}/useraddsave.action" id="userForm" method="post">
+<form action="${ctx}/useradd.action" id="userForm" method="post">
 <table width="100%"  border="0" cellpadding="5" cellspacing="0" class="main_tabbor">
   <tr><td>${message}</td></tr>
   <tr valign="top">

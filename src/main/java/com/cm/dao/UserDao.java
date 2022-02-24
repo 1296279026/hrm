@@ -10,6 +10,6 @@ public interface UserDao {
     //登录
     User login(String loginname, String password) throws Exception;
     //添加
-    void adduser(Map<String, String[]> map) throws SQLException, InvocationTargetException, IllegalAccessException, NoSuchMethodException;
+    void adduser(User user) throws SQLException, InvocationTargetException, IllegalAccessException, NoSuchMethodException;
 
 }

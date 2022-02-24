@@ -3,52 +3,21 @@ package com.cm.dao.impl;
 import com.cm.dao.EmployeeDao;
 import com.cm.entity.Employee;
 import com.cm.utils.JDBCUtil;
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.beanutils.ConvertUtils;
-import org.apache.commons.beanutils.converters.DateConverter;
 import org.apache.commons.dbutils.QueryRunner;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.util.Map;
-
 public class EmployeeDaoImpl implements EmployeeDao {
     //添加员工
     @Override
-    public void addemployee(Map<String, String[]> map) throws InvocationTargetException, IllegalAccessException, SQLException, NoSuchMethodException {
-
+    public void addemployee(Employee employee) throws  SQLException {
         QueryRunner queryRunner = new QueryRunner();
         //获取连接
         Connection conn = JDBCUtil.getConnection();
-        //传进来的map
-        Employee employee=new Employee();
-        BeanUtils.populate(employee, map);
-
-
-        String name = BeanUtils.getProperty(employee, "name");
-        String card_id = BeanUtils.getProperty(employee, "card_id");
-        String sex = BeanUtils.getProperty(employee, "sex");
-        String address = BeanUtils.getProperty(employee, "address");
-        int job_id = Integer.parseInt(BeanUtils.getProperty(employee, "job_id"));
-        int dept_id = Integer.parseInt(BeanUtils.getProperty(employee, "dept_id"));
-        int id = Integer.parseInt(BeanUtils.getProperty(employee, "id"));
-        String post_code = BeanUtils.getProperty(employee, "post_code");
-        String tel = BeanUtils.getProperty(employee, "tel");
-        String phone = BeanUtils.getProperty(employee, "phone");
-        String qq_num = BeanUtils.getProperty(employee, "qq_num");
-        String email = BeanUtils.getProperty(employee, "email");
-        String party = BeanUtils.getProperty(employee, "party");
-        String birthday = BeanUtils.getProperty(employee, "birthday");
-        String race = BeanUtils.getProperty(employee, "race");
-        String education = BeanUtils.getProperty(employee, "education");
-        String speciality = BeanUtils.getProperty(employee, "speciality");
-        String hobby = BeanUtils.getProperty(employee, "hobby");
-        String remark = BeanUtils.getProperty(employee, "remark");
-
-
-
-
-
+        //SQL语句
+        System.out.println(employee);
+        String sql = "INSERT INTO employee_inf(NAME,CARD_ID,SEX,JOB_ID,EDUCATION,EMAIL,PHONE,TEL,PARTY,QQ_NUM,ADDRESS,POST_CODE,BIRTHDAY,RACE,SPECIALITY,HOBBY,DEPT_ID,REMARK) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+       // int i = queryRunner.update(conn, sql,name,card_id,sex,job_id,education,email,phone,tel,party,qq_num,address,post_code,birthday,race,speciality,hobby,dept_id,remark);
+        int i = queryRunner.update(conn, sql,employee.getName(),employee.getCard_id(),employee.getSex(),employee.getJob_id(),employee.getEducation(),employee.getEmail(),employee.getPhone(),employee.getTel(),employee.getParty(),employee.getQq_num(),employee.getAddress(),employee.getPost_code(),employee.getBirthday(),employee.getRace(),employee.getSpeciality(),employee.getHobby(),employee.getDept_id(),employee.getRemark());
+        System.out.println("添加成功"+i);
     }
 }
