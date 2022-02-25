@@ -1,7 +1,6 @@
 package com.cm.utils;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
-
 import javax.sql.DataSource;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -27,12 +26,9 @@ public class JDBCUtil {
         Connection conn = source.getConnection();
         return conn;
     }
-    public void close(){
-        try {
-            getConnection().close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    //释放连接资源
+    public static void close(Connection conn) throws SQLException {
+        conn.close();
     }
 }
 

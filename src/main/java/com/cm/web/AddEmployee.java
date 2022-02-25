@@ -2,14 +2,8 @@ package com.cm.web;
 
 import com.cm.dao.EmployeeDao;
 import com.cm.dao.impl.EmployeeDaoImpl;
-import com.cm.entity.Dept;
 import com.cm.entity.Employee;
-import com.cm.entity.Job;
-import com.cm.utils.JDBCUtil;
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,9 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Map;
 
 @WebServlet(name = "AddEmployee", value = {"/employee/addEmployee"})
@@ -38,7 +30,11 @@ public class AddEmployee extends HttpServlet {
             e.printStackTrace();
         }
         try {
-            employeeDao.addemployee(employee);
+            int i = employeeDao.addemployee(employee);
+            if (i==1){
+                req.setAttribute("code",i);
+            }
+
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {

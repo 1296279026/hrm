@@ -8,7 +8,6 @@ import com.cm.entity.User;
 import com.cm.utils.JDBCUtil;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -80,6 +79,7 @@ public class Login extends HttpServlet {
                         HttpSession session = req.getSession();
                        session.setAttribute("deptList", deptList);
                     }
+
                 } else {
                     // System.out.println("失败");
                     req.setAttribute("message", "用户名或密码不正确");

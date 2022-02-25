@@ -23,7 +23,15 @@
 	<link href="${ctx}/css/pager.css" type="text/css" rel="stylesheet" />
 	<script language="javascript" type="text/javascript" src="${ctx }/js/My97DatePicker/WdatePicker.js"></script>
 	<script type="text/javascript">
-	
+
+
+		$(function (){
+			if (${code==1}){
+				alert("添加成功")
+			}else {
+				console.log("失败")
+			}
+		})
 	 
 	    $(function()
 	    {

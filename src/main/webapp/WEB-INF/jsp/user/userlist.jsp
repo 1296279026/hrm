@@ -91,7 +91,7 @@
  	   })
  	   
  	   $("#query").click(function(){
- 		  	$("#userform").attr("action", "${ctx}/userlist.action");
+ 		  	$("#userform").attr("action", "${ctx}/queryUser.action");
  		 	$("#userform").submit();
  	   })
  	   
@@ -129,7 +129,6 @@
 						class="main_tab">
 						<tr>
 							<td class="fftd">
-
 								<table width="100%" border="0" cellpadding="0" cellspacing="0">
 									<tr>
 										<td class="font3">登录名：<input type="text" name="loginname"

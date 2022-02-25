@@ -1,18 +1,10 @@
 package com.cm.web;
 
-import com.cm.entity.Dept;
-import com.cm.entity.Job;
-import com.cm.utils.JDBCUtil;
-import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
+
 
 @WebServlet(name = "Employeecon", value = "/employeeadd.action")
 public class Employeecon extends HttpServlet {

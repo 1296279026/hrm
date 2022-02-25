@@ -113,7 +113,7 @@
 					    	职位：
 							    <select name="job_id" style="width:143px;">
 					    			<option value="">--请选择职位--</option>
-					    			<c:forEach items="${requestScope.jobList}" var="job">
+					    			<c:forEach items="${sessionScope.jobList}" var="job">
 					    				<c:choose>
 					    				<c:when test="${job.id==employee.job.id}">
 					    					<option value="${job.id}" selected="selected">${job.name}</option>
@@ -139,7 +139,7 @@
 					    	手机：<input type="text" name="phone">
 					    	所属部门：<select  name="dept_id" style="width:100px;">
 								   <option value="">--部门选择--</option>
-								   <c:forEach items="${requestScope.deptList }" var="dept">
+								   <c:forEach items="${sessionScope.deptList }" var="dept">
 								   		<c:choose>
 								   		<c:when test="${dept.id==employee.dept.id}">
 					    					<option value="${dept.id}" selected="selected">${dept.name}</option>

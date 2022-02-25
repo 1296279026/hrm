@@ -21,6 +21,13 @@
 	<script src="${ctx}/js/ligerUI/js/plugins/ligerResizable.jss" type="text/javascript"></script>
 	<link href="${ctx}/css/pager.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript">
+		$(function (){
+			if (${code==1}){
+				alert("添加成功")
+			}else {
+				console.log("失败")
+			}
+		})
 	
 	$(function(){
     	/** 员工表单提交 */
@@ -65,7 +72,7 @@
 	<td width="15" height="32"><img src="${ctx}/images/main_locright.gif" width="15" height="32"></td>
   </tr>
 </table>
-<form action="${ctx}/useradd.action" id="userForm" method="post">
+<form action="${ctx}/useradd1.action" id="userForm" method="post">
 <table width="100%"  border="0" cellpadding="5" cellspacing="0" class="main_tabbor">
   <tr><td>${message}</td></tr>
   <tr valign="top">
@@ -77,12 +84,11 @@
 		    			<td class="font3 fftd">姓&nbsp;名：<input type="text" name="username" id="username" size="20"/></td>
 		    			<td class="font3 fftd">状&nbsp;态：<input type="text" name="status" id="status" size="20"/></td>
 		    		</tr>
-		    			
+
 		    		<tr>
 		    			<td class="font3 fftd">登录名：<input name="loginname" id="loginname" size="20" /></td>
 		    			<td class="font3 fftd">密&nbsp;码：<input name="password" id="password" size="20" /></td>
 		    		</tr>
-		    		
 		    	</table>
 		    </td></tr>
 			<tr><td align="left" class="fftd"><input type="submit" value="添加">&nbsp;&nbsp;<input type="reset" value="取消 "></td></tr>

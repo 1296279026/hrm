@@ -4,7 +4,6 @@ import com.cm.dao.UserDao;
 import com.cm.dao.impl.UserDaoImpl;
 import com.cm.entity.User;
 import org.apache.commons.beanutils.BeanUtils;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -13,15 +12,13 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.Map;
 
-@WebServlet(name = "AddUser", value = {"/useradd.action"})
+@WebServlet(name = "AddUser", value = {"/useradd1.action"})
 public class AddUser extends HttpServlet {
     UserDao userDao=new UserDaoImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        String prefix = "/WEB-INF/jsp/user/";
-        String suffix = ".jsp";
-        request.getRequestDispatcher(prefix+"useradd"+suffix).forward(request,response);
+        //添加用户
         Map<String, String[]> map = request.getParameterMap();
         User user=new User();
         try {
@@ -32,7 +29,11 @@ public class AddUser extends HttpServlet {
             e.printStackTrace();
         }
         try {
-            userDao.adduser(user);
+            int i = userDao.adduser(user);
+            if (i==1){
+                request.setAttribute("code",i);
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {

@@ -73,4 +73,13 @@ public class Test1 {
         System.out.println(jobs);
 
     }
+    @Test
+    public void fun5() throws SQLException {
+        QueryRunner queryRunner = new QueryRunner();
+        //获取连接
+        Connection conn = JDBCUtil.getConnection();
+        String sql = "SELECT * FROM user_inf ";
+        List<User> users = queryRunner.query(conn, sql, new BeanListHandler<User>(User.class));
+        System.out.println(users);
+    }
 }
